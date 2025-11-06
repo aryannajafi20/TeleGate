@@ -247,34 +247,3 @@ def admin_generate_link():
 
     return text_en, markup
 
-def view_plans():
-    text = (
-        "💰 Limizer Subscription Plans:\n\n"
-        "1️⃣ 1 Month - $10\n"
-        "2️⃣ 3 Months - $25\n"
-        "3️⃣ 1 Year - $90\n\n"
-        "🔹 All plans include the same gold signals.\n"
-        "🔹 Subscription link will be provided by support after payment."
-    )
-    kb = InlineKeyboardMarkup()
-    kb.add(
-        InlineKeyboardButton("🏷️ get subscription", url=f"https://t.me/{settings.SUPPORT_USERNAME}")
-    )
-    kb.add(
-        InlineKeyboardButton("◀️ Back", callback_data="back_to_unknown_menu"),
-    )
-    return text, kb
-
-def unknown_starts():
-    limizer_description = (
-        "💎 Welcome to Limizer!\n\n"
-        "Limizer is an intelligent gold signals bot.\n\n"
-        "🚫 You currently cannot access signals without an invitation link.\n"
-    )
-    kb = InlineKeyboardMarkup(row_width=1)
-    kb.add(
-        InlineKeyboardButton("🏷️ View Plans", callback_data="view_plans"),
-        InlineKeyboardButton("⁉ FAQ", callback_data="faq"),
-        InlineKeyboardButton("📞 Contact Support", url=f"https://t.me/{settings.SUPPORT_USERNAME}")
-    )
-    return limizer_description, kb
